@@ -1,0 +1,185 @@
+{% extends "index.html" %}
+{% block base %}
+
+<div class="container">
+	<div class="row">
+
+
+		<div class="col-lg-4">
+			<div class="card">
+        <div class="card-body p-2">
+
+ 			 <form action="/feePay/" method="POST">
+				      {% csrf_token%}
+				    <input type="hidden" name="fee_id" value="{{f.id}}">
+				    <input type="hidden" name="bus_id" value="{{b.id}}">
+				    <input type="hidden" name="btransport" value="{{b.transport}}">
+					<table class="table-sm table-bordered ">
+						  <thead class="text-center align-middle">
+								<tr>
+								  <th scope="col">Fee</th>
+								  <th scope="col">Amount</th>
+								  <th scope="col">Transport</th>
+								  <th scope="col">Status</th>
+								</tr>
+						  </thead>
+						  <tbody class="text-center align-middle">
+								<tr>
+								  <th scope="row">Annual</th>
+								  <td> <input  type=text name="annualFee" class="form-control" {% if f.annualFee != 0 %} value="{{f.annualFee}}" {% endif %}> </td>
+								  <td>{% if b.transport %} <input class="btn btn-success btn-sm" type="button" value="Yes">{% else %} <input class="btn btn-danger btn-sm" type="button" value="No">{% endif %}</td>
+								  <td>{% if f.annualFee != 0 %} <input class="btn btn-success btn-sm" type="button" value="Paid">{% else %} <input class="btn btn-danger btn-sm" type="button" value="No">{% endif %} </td>
+								</tr>
+								<tr>
+								  <th scope="row">January</th>
+								  <td><input  type=text name="januaryFee" class="form-control" {% if f.januaryFee != 0 %} value="{{f.januaryFee}}" {% endif %}></td>
+								  <td>{% if b.transport %} <input  type=text name="bjanuaryFee" class="form-control" {% if b.januaryFee != 0 %} value="{{b.januaryFee}}" {% endif %}> {% endif %}</td>
+								  <td>{% if f.januaryFee != 0 %} <input class="btn btn-success btn-sm" type="button" value="Paid">{% else %} <input class="btn btn-danger btn-sm" type="button" value="No">{% endif %} </td>
+								</tr>
+								<tr>
+								  <th scope="row">February</th>
+								  <td><input  type=text name="februaryFee" class="form-control" {% if f.februaryFee != 0 %} value="{{f.februaryFee}}" {% endif %}></td>
+								  <td>{% if b.transport %} <input  type=text name="bfebruaryFee" class="form-control" {% if b.februaryFee != 0 %} value="{{b.februaryFee}}" {% endif %}> {% endif %}</td>
+								  <td>{% if f.februaryFee != 0 %} <input class="btn btn-success btn-sm" type="button" value="Paid">{% else %} <input class="btn btn-danger btn-sm" type="button" value="No">{% endif %} </td>
+								</tr>
+       							 <tr>
+								  <th scope="row">March</th>
+								  <td><input  type=text name="marchFee" class="form-control" {% if f.marchFee != 0 %} value="{{f.marchFee}}" {% endif %}></td>
+								  <td>{% if b.transport %} <input  type=text name="bmarchFee" class="form-control" {% if b.marchFee != 0 %} value="{{b.marchFee}}" {% endif %}> {% endif %}</td>
+								  <td>{% if f.marchFee != 0 %} <input class="btn btn-success btn-sm" type="button" value="Paid">{% else %} <input class="btn btn-danger btn-sm" type="button" value="No">{% endif %} </td>
+								</tr>
+        						 <tr>
+								  <th scope="row">April</th>
+								  <td><input  type=text name="aprilFee" class="form-control" {% if f.aprilFee != 0 %} value="{{f.aprilFee}}" {% endif %}></td>
+								  <td>{% if b.transport %} <input  type=text name="baprilFee" class="form-control" {% if b.aprilFee != 0 %} value="{{b.aprilFee}}" {% endif %}> {% endif %}</td>
+								  <td>{% if f.aprilFee != 0 %} <input class="btn btn-success btn-sm" type="button" value="Paid">{% else %} <input class="btn btn-danger btn-sm" type="button" value="No">{% endif %} </td>
+								</tr>
+        						 <tr>
+								  <th scope="row">May</th>
+								  <td><input  type=text name="mayFee" class="form-control" {% if f.mayFee != 0 %} value="{{f.mayFee}}" {% endif %}></td>
+								  <td>{% if b.transport %} <input  type=text name="bmayFee" class="form-control" {% if b.mayFee != 0 %} value="{{b.mayFee}}" {% endif %}> {% endif %}</td>
+								  <td>{% if f.mayFee != 0 %} <input class="btn btn-success btn-sm" type="button" value="Paid">{% else %} <input class="btn btn-danger btn-sm" type="button" value="No">{% endif %} </td>
+								</tr>
+         						<tr>
+								  <th scope="row">June</th>
+								  <td><input  type=text name="juneFee" class="form-control" {% if f.juneFee != 0 %} value="{{f.juneFee}}" {% endif %}></td>
+								  <td>{% if b.transport %} <input  type=text name="bjuneFee" class="form-control" {% if b.juneFee != 0 %} value="{{b.juneFee}}" {% endif %}> {% endif %}</td>
+								  <td>{% if f.juneFee != 0 %} <input class="btn btn-success btn-sm" type="button" value="Paid">{% else %} <input class="btn btn-danger btn-sm" type="button" value="No">{% endif %} </td>
+								</tr>
+        						<tr>
+								  <th scope="row">July</th>
+								  <td><input  type=text name="julyFee" class="form-control" {% if f.julyFee != 0 %} value="{{f.julyFee}}" {% endif %}></td>
+								  <td>{% if b.transport %} <input  type=text name="bjulyFee" class="form-control" {% if b.julyFee != 0 %} value="{{b.julyFee}}" {% endif %}> {% endif %}</td>
+								  <td>{% if f.julyFee != 0 %} <input class="btn btn-success btn-sm" type="button" value="Paid">{% else %} <input class="btn btn-danger btn-sm" type="button" value="No">{% endif %} </td>
+								</tr>
+       							 <tr>
+								  <th scope="row">August</th>
+								  <td><input  type=text name="augustFee" class="form-control" {% if f.augustFee != 0 %} value="{{f.augustFee}}" {% endif %}></td>
+								  <td>{% if b.transport %} <input  type=text name="baugustFee" class="form-control" {% if b.augustFee != 0 %} value="{{b.augustFee}}" {% endif %}> {% endif %}</td>
+								  <td>{% if f.augustFee != 0 %} <input class="btn btn-success btn-sm" type="button" value="Paid">{% else %} <input class="btn btn-danger btn-sm" type="button" value="No">{% endif %} </td>
+								</tr>
+       							 <tr>
+								  <th scope="row">September</th>
+								  <td><input  type=text name="septemberFee" class="form-control" {% if f.septemberFee != 0 %} value="{{f.septemberFee}}" {% endif %}></td>
+								  <td>{% if b.transport %} <input  type=text name="bseptemberFee" class="form-control" {% if b.septemberFee != 0 %} value="{{b.septemberFee}}" {% endif %}> {% endif %}</td>
+								  <td>{% if f.septemberFee != 0 %} <input class="btn btn-success btn-sm" type="button" value="Paid">{% else %} <input class="btn btn-danger btn-sm" type="button" value="No">{% endif %} </td>
+								</tr>
+       							 <tr>
+								  <th scope="row">October</th>
+								  <td><input  type=text name="octoberFee" class="form-control" {% if f.octoberFee != 0 %} value="{{f.octoberFee}}" {% endif %}></td>
+								  <td>{% if b.transport %} <input  type=text name="boctoberFee" class="form-control" {% if b.octoberFee != 0 %} value="{{b.octoberFee}}" {% endif %}> {% endif %}</td>
+								  <td>{% if f.octoberFee != 0 %} <input class="btn btn-success btn-sm" type="button" value="Paid">{% else %} <input class="btn btn-danger btn-sm" type="button" value="No">{% endif %} </td>
+								</tr>
+       							 <tr>
+								  <th scope="row">November</th>
+								  <td><input  type=text name="novemberFee" class="form-control" {% if f.novemberFee != 0 %} value="{{f.novemberFee}}" {% endif %}></td>
+								  <td>{% if b.transport %} <input  type=text name="bnovemberFee" class="form-control" {% if b.novemberFee != 0 %} value="{{b.novemberFee}}" {% endif %}> {% endif %}</td>
+								  <td>{% if f.novemberFee != 0 %} <input class="btn btn-success btn-sm" type="button" value="Paid">{% else %} <input class="btn btn-danger btn-sm" type="button" value="No">{% endif %} </td>
+								</tr>
+        						 <tr>
+								  <th scope="row">December</th>
+								  <td><input  type=text name="decemberFee" class="form-control" {% if f.decemberFee != 0 %} value="{{f.decemberFee}}" {% endif %}></td>
+								  <td>{% if b.transport %} <input  type=text name="bdecemberFee" class="form-control" {% if b.decemberFee != 0 %} value="{{b.decemberFee}}" {% endif %}> {% endif %}</td>
+								  <td>{% if f.decemberFee != 0 %} <input class="btn btn-success btn-sm" type="button" value="Paid">{% else %} <input class="btn btn-danger btn-sm" type="button" value="No">{% endif %} </td>
+								</tr>
+						  </tbody>
+						</table><br>
+						  <div class="row mb-3">
+							  <div class="col"><input type="submit" class="btn btn-primary btn-lg btn-block" value="Submit"> </div>
+							  <div class="col"> <a class="btn btn-success btn-lg btn-block" href="/display/?admissionNumber={{f.admissionNumber_id}}" role="button">Cancel</a></div>
+						  </div>
+ 				     </form>
+
+              </div>
+		</div>
+ </div>
+
+
+		<div class="col-lg-8">
+             <div class="card">
+
+				    <div class="d-flex flex-column align-items-center text-center">
+						<div class="mt-2"></div>
+						{% if s.image %}<img src="{{ s.image.url }}" class="rounded-circle" style="width: 120px; height: 120px;">{% else %}<img src="/static/image/profile.jpg" class="rounded-circle" style="width: 120px; height: 120px;">{% endif %}
+                        <div class="mt-2"> <h4>{{s.studentName}}</h4></div>
+						<div class="mt-2"></div>
+                    </div>
+
+
+                 <div class="card-body p-6">
+					 <div class="row mb-4">
+						 <div class="col-sm-3"><h6 class="mb-0">Admission Number :- </h6></div>
+						 <div class="col-sm-3 text-secondary"><p>{{s.admissionNumber}}</p></div>
+						  <div class="col-sm-3"><h6 class="mb-0">Admission Date :- </h6></div>
+						 <div class="col-sm-3 text-secondary"><p>{{s.currentDateTime|date:"d-M-Y"}}</p></div>
+					 </div>
+
+					 <div class="row mb-4">
+						 <div class="col-sm-3"><h6 class="mb-0">Student Name :- </h6></div>
+						 <div class="col-sm-3 text-secondary"><p>{{s.studentName}}</p></div>
+						  <div class="col-sm-3"><h6 class="mb-0">Student Class :- </h6></div>
+						 <div class="col-sm-3 text-secondary"><p>{{s.studentClass}}</p></div>
+					 </div>
+
+					 <div class="row mb-4">
+						 <div class="col-sm-3"><h6 class="mb-0">Date of Birth :- </h6></div>
+						 <div class="col-sm-3 text-secondary"><p>{{s.studentDOB|date:"d-m-Y"}}</p></div>
+						 <div class="col-sm-3"><h6 class="mb-0">Aadhar Number :- </h6></div>
+						 <div class="col-sm-3 text-secondary"><p>{{s.aadharNumber}}</p></div>
+					 </div>
+
+					 <div class="row mb-4">
+						 <div class="col-sm-3"><h6 class="mb-0">Father's Name :- </h6></div>
+						 <div class="col-sm-3 text-secondary"><p>{{s.fatherName}}</p></div>
+						  <div class="col-sm-3"><h6 class="mb-0">Mother,s Name :- </h6></div>
+						 <div class="col-sm-3 text-secondary"><p>{{s.motherName}}</p></div>
+					 </div>
+
+					 <div class="row mb-4">
+						 <div class="col-sm-3"><h6 class="mb-0">Mobile Number :- </h6></div>
+						 <div class="col-sm-3 text-secondary"><p>{{s.mobileNumber}}</p></div>
+						 <div class="col-sm-3"><h6 class="mb-0">Student Address :- </h6></div>
+						 <div class="col-sm-3 text-secondary"><p>{{s.studentAddress}}</p></div>
+					 </div>
+
+					 <div class="row mb-5">
+						 <div class="col-sm-3"><h6 class="mb-0">Previous School :- </h6></div>
+						 <div class="col-sm-3 text-secondary"><p>{{s.previousSchool}}</p></div>
+						  <div class="col-sm-3"><h6 class="mb-0">Previous Class :- </h6></div>
+						 <div class="col-sm-3 text-secondary"><p>{{s.previousClass}}</p></div>
+					 </div>
+
+					  <div class="row mb-5">
+						 <div class="col mx-5 px-5"><a class="btn btn-primary btn-lg btn-block" href="/updateForm/?admissionNumber={{s.admissionNumber}}" role="button">Update</a></div>
+						  <div class="col"><a class="btn btn-danger btn-lg btn-block" href="/delete/?admissionNumber={{s.admissionNumber}}" role="button">Delete</a></div>
+						  <div class="col mx-5"><a class="btn btn-success btn-lg btn-block" href="{% url 'allRecords' %}" role="button">Cancel</a></div>
+					 </div>
+				 </div>
+             </div>
+         </div>
+
+	</div>
+</div>
+
+
+{% endblock %}
